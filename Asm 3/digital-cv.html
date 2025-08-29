@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Charter</title>
+    <!-- Tải các font chữ và icon -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/laptop.css" />
+    <link rel="stylesheet" href="./css/tablet.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <style>
+      /* CSS chung */
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .charter-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f4f7f8;
+      }
+      .charter-item {
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+      }
+      .charter-item .header {
+        border-bottom: 2px solid #337ab7;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      .charter-item .header h2 {
+        color: #337ab7;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      .charter-content .row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+      }
+      .charter-content .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #337ab7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+      }
+      .charter-content .icon i {
+        color: #fff;
+      }
+      .charter-content .content h4 {
+        margin: 0;
+        color: #555;
+      }
+      .charter-content .content p {
+        margin: 5px 0 0;
+        color: #777;
+      }
+      .charter-item#scopes .in,
+      .charter-item#scopes .out {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 15px;
+      }
+      .charter-item#scopes .in h2,
+      .charter-item#scopes .out h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        color: #337ab7;
+      }
+      .charter-item#timeline .row .icon {
+        background-color: #5cb85c;
+        font-size: 1rem;
+      }
+      .charter-item#timeline .row .icon h2 {
+        color: #fff;
+        margin: 0;
+      }
+      .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 100;
+        transition: background-color 0.3s ease;
+      }
+      .back-btn:hover {
+        background-color: #0056b3;
+      }
+      .back-btn a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Responsive CSS */
+      /* Desktop/Laptop (mặc định) */
+      @media (min-width: 1024px) {
+        .charter-wrapper {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-rows: auto auto;
+          grid-template-areas:
+            "goals team timeline"
+            "scopes primary timeline";
+        }
+        #goals {
+          grid-area: goals;
+        }
+        #scopes {
+          grid-area: scopes;
+        }
+        #team {
+          grid-area: team;
+        }
+        #primary {
+          grid-area: primary;
+        }
+        #timeline {
+          grid-area: timeline;
+        }
+      }
+
+      /* Tablet */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .charter-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "goals scopes"
+            "team primary"
+            "timeline timeline";
+        }
+        #goals {
+          grid-area: goals;
+        }
+        #scopes {
+          grid-area: scopes;
+        }
+        #team {
+          grid-area: team;
+        }
+        #primary {
+          grid-area: primary;
+        }
+        #timeline {
+          grid-area: timeline;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 767px) {
+        .charter-wrapper {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="back-btn">
+      <a href="index.html">Back</a>
+    </button>
+    <div class="charter-wrapper">
+      <div class="charter-item" id="goals">
+        <div class="header">
+          <h2>Goals</h2>
+        </div>
+        <div class="charter-content">
+          <div class="row">
+            <div class="icon">
+              <i class="icon-flag-checkered"></i>
+            </div>
+            <div class="content">
+              <h4>Mục tiêu 1</h4>
+              <p>
+                Phát triển một trang web tin tức với giao diện thân thiện, dễ sử
+                dụng.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <i class="icon-flag-checkered"></i>
+            </div>
+            <div class="content">
+              <h4>Mục tiêu 2</h4>
+              <p>Cho phép người dùng tìm kiếm tin tức theo từ khóa.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <i class="icon-flag-checkered"></i>
+            </div>
+            <div class="content">
+              <h4>Mục tiêu 3</h4>
+              <p>Hiển thị tin tức từ nhiều nguồn khác nhau.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="charter-item" id="scopes">
+        <div class="header">
+          <h2>Scopes</h2>
+        </div>
+        <div class="charter-content">
+          <div class="in">
+            <h2>IN</h2>
+            <p>Phát triển chức năng tìm kiếm tin tức.</p>
+            <p>
+              Thiết kế giao diện người dùng (UI) và trải nghiệm người dùng (UX)
+              cơ bản.
+            </p>
+            <p>Tích hợp API để lấy tin tức từ ít nhất 3 nguồn khác nhau.</p>
+          </div>
+          <div class="out">
+            <h2>OUT</h2>
+            <p>Hệ thống đăng nhập/đăng ký người dùng.</p>
+            <p>Tính năng lưu tin tức yêu thích.</p>
+            <p>Chức năng bình luận hoặc tương tác xã hội.</p>
+          </div>
+        </div>
+      </div>
+      <div class="charter-item" id="team">
+        <div class="header">
+          <h2>Team</h2>
+        </div>
+        <div class="charter-content">
+          <div class="row">
+            <div class="icon">
+              <i class="icon-user-2"></i>
+            </div>
+            <div class="content">
+              <h4>Thành viên 01</h4>
+              <p>Tên: Vũ Gia Huy (Developer)</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <i class="icon-user-2"></i>
+            </div>
+            <div class="content">
+              <h4>Thành viên 02</h4>
+              <p>Tên: Tên Thành viên (Developer)</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <i class="icon-user-2"></i>
+            </div>
+            <div class="content">
+              <h4>Thành viên 03</h4>
+              <p>Tên: Tên Thành viên (Tester)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="charter-item" id="primary">
+        <div class="header">
+          <h2>Primary</h2>
+        </div>
+        <div class="charter-content">
+          <div class="row">
+            <div class="icon">
+              <i class="icon-question"></i>
+            </div>
+            <div class="content">
+              <p>
+                Hoàn thành chức năng tìm kiếm tin tức trước tiên để đảm bảo tính
+                năng cốt lõi hoạt động.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <i class="icon-question"></i>
+            </div>
+            <div class="content">
+              <p>Tối ưu hóa tốc độ tải trang và hiển thị tin tức.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="charter-item" id="timeline">
+        <div class="header">
+          <h2>Timeline</h2>
+        </div>
+        <div class="charter-content">
+          <div class="row">
+            <div class="icon">
+              <h2>01</h2>
+            </div>
+            <div class="content">
+              <h4>Khởi động dự án</h4>
+              <p>Bắt đầu dự án, xác định các yêu cầu cơ bản.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <h2>02</h2>
+            </div>
+            <div class="content">
+              <h4>Phân tích và thiết kế</h4>
+              <p>Thiết kế giao diện, phân tích cấu trúc dữ liệu.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <h2>03</h2>
+            </div>
+            <div class="content">
+              <h4>Phát triển chức năng chính</h4>
+              <p>Xây dựng chức năng tìm kiếm và hiển thị tin tức.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <h2>04</h2>
+            </div>
+            <div class="content">
+              <h4>Tích hợp dữ liệu</h4>
+              <p>Kết nối và lấy dữ liệu từ các nguồn tin tức.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <h2>05</h2>
+            </div>
+            <div class="content">
+              <h4>Kiểm thử và tối ưu</h4>
+              <p>Kiểm tra lỗi, tối ưu hiệu suất và giao diện.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="icon">
+              <h2>06</h2>
+            </div>
+            <div class="content">
+              <h4>Hoàn thành và bàn giao</h4>
+              <p>Hoàn thiện dự án và chuẩn bị bàn giao.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/digital-cv-data.js"></script>
+    <script>
+      // Lấy tham số từ URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get("project");
+
+      // Khi trang tải xong, cập nhật nội dung
+      window.onload = function () {
+        if (projectId && projects[projectId]) {
+          updateProjectCharter(projectId);
+        } else {
+          // Mặc định hiển thị dự án News-website nếu không có tham số
+          updateProjectCharter("news-website");
+        }
+      };
+    </script>
+  </body>
+</html>
